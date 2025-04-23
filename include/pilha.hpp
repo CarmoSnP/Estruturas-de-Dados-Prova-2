@@ -88,19 +88,16 @@ class Pilha {
   // ---
 };
 
-// Construtor da pilha
 template <class T>
 Pilha<T>::Pilha(size_t capacidade) : capacidade(capacidade), tamanho(0) {
   dados = new T[capacidade];
 }
 
-// Destrutor da pilha
 template <class T>
 Pilha<T>::~Pilha() {
   delete[] dados;
 }   
 
-// Adiciona ao topo
 template <class T>
 void Pilha<T>::empilhar(const T& valor) {
   if (esta_cheia())
@@ -108,7 +105,6 @@ void Pilha<T>::empilhar(const T& valor) {
   dados[tamanho++] = valor;
 }
 
-// Remove o topo
 template <class T>
 T Pilha<T>::desempilhar() {
   if (esta_vazia())
@@ -116,7 +112,6 @@ T Pilha<T>::desempilhar() {
   return dados[--tamanho];
 }
 
-// Retorna o topo da pilha
 template <class T>
 T& Pilha<T>::topo() {
   if (esta_vazia())
@@ -124,7 +119,6 @@ T& Pilha<T>::topo() {
   return dados[tamanho - 1];
 }
 
-// Retorna constante do topo da pilha
 template <class T>
 const T& Pilha<T>::topo() const {
   if (esta_vazia())
@@ -132,13 +126,11 @@ const T& Pilha<T>::topo() const {
   return dados[tamanho - 1];
 }
 
-// ver se ta vazia vazia
 template <class T>
 bool Pilha<T>::esta_vazia() const {
   return tamanho == 0;
 }
 
-// Verifica se a pilha está cheia
 template <class T>
 bool Pilha<T>::esta_cheia() const {
   return tamanho == capacidade;
